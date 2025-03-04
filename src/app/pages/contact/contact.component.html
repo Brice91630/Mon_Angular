@@ -1,0 +1,29 @@
+<style>
+    .box {
+        border: 1px solid black;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+</style>
+
+<main class="main">
+    <div *ngFor="let contact of contacts; trackBy: trackById" class="box">
+        <table class="table">
+            <tbody>
+                <tr>
+                    <td>{{ contact.id }}</td>
+                    <td>{{ contact.nom }}</td>
+                    <td>{{ contact.prenom }}</td>
+                    <td>{{ contact.email }}</td>
+                    <td colspan="4">{{ contact.description }}</td>
+                    <td>
+                        <button class="btn btn-primary btn-sm">
+                            Répondre
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <p *ngIf="contacts.length === 0">There are no contacts</p>
+</main>

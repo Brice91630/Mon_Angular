@@ -1,0 +1,31 @@
+<style>
+    .box {
+        border: 1px solid black;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+</style>
+
+<main class="main">
+    <div *ngFor="let comment of comments; trackBy: trackById" class="box">
+        <table class="table">
+            <tbody>
+                <tr>
+                    <td>{{ comment.id }}</td>
+                    <td>{{ comment.user }}</td>
+                    <td>{{ comment.publicationDateCom | date:'dd/MM/yyyy' }}</td>
+                    <td>
+                        <button (click)=" deleteComment(comment.id)" class="btn btn-danger btn-sm">
+                            Supprimer
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4">{{ comment.contenu }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <p *ngIf="comments.length === 0">Il n'y a aucun commentaires disponibles.</p>
+    <button (click)="HomeRedirect()" class="btn btn-primary mt-3">Retour Page d'Accueil</button>
+</main>
